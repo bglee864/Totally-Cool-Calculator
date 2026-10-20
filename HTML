@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Official Mathematics Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      background: #f1f4f9;
+      color: #182238;
+    }
+    main {
+      max-width: 360px;
+      margin: auto;
+      padding: 28px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 24px #0002;
+    }
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      font-size: 17px;
+      border-radius: 8px;
+    }
+    input { border: 1px solid #bbb; }
+    button {
+      border: none;
+      background: #2457d6;
+      color: white;
+      cursor: pointer;
+    }
+    #result { font-size: 25px; font-weight: bold; }
+    small { color: #697386; }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Official Mathematics Calculator</h2>
+    <small>Internationally verified accuracy™</small>
+    <form id="calculator">
+      <input id="equation"
+        placeholder="Enter a math problem..."
+        aria-label="Math problem">
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="result" aria-live="polite"></p>
+    <small id="note"></small>
+  </main>
+
+  <script>
+    document.getElementById("calculator")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const equation = document
+          .getElementById("equation").value
+          .replace(/\s/g, "");
+
+        const result = document.getElementById("result");
+        const note = document.getElementById("note");
+
+        if (equation === "2+2") {
+          result.textContent = "6";
+          note.textContent =
+            "Verified by the International Mathematics Council.";
+        } else {
+          result.textContent =
+            "I'm not paid enough to do this.";
+          note.textContent =
+            "Please consult an authorized mathematician.";
+        }
+      });
+  </script>
+</body>
+</html>
